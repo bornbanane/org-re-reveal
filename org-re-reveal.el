@@ -2901,6 +2901,7 @@ org-export options)."
   "Return notes for title slide from INFO."
   (plist-get info :title-notes))
 
+;; ici on va tweak pour avoir un exemple le plus simpliste du monde !
 (defun org-re-reveal-template (contents info)
   "Return complete document string after HTML conversion.
 CONTENTS is the transcoded contents string.
@@ -2932,11 +2933,11 @@ INFO is a plist holding export options."
                             (string-prefix-p "http" tdm))
                    (format "<meta name=\"tdm-policy\" content=\"%s\">\n" tdm)))
        "")
-     (org-re-reveal-stylesheets info)
-     (org-re-reveal--build-pre-postamble 'head-preamble info spec)
-     (org-re-reveal-mathjax-scripts info)
-     (org-element-normalize-string (plist-get info :html-head))
-     (org-element-normalize-string (plist-get info :html-head-extra))
+     
+      "<link rel=\"stylesheet\" href=\"./reveal.js/dist/reveal.css\"/>"
+      "\n"
+      "<link rel=\"stylesheet\" href=\"./reveal.js/dist/theme/moon.css\" id="theme"/>"
+
      "</head>\n<body"
      (org-re-reveal--if-format " %s" org-re-reveal-body-attrs)
      ">\n"
@@ -2977,10 +2978,15 @@ INFO is a plist holding export options."
      contents
      "</div>
 </div>\n"
-     (org-re-reveal--build-pre-postamble 'postamble info spec)
-     (org-re-reveal-scripts info)
-     (org-re-reveal--klipsify-script info)
-     (org-re-reveal--build-pre-postamble 'postscript info spec)
+     
+"<script src=\"./reveal.js/dist/reveal.js\"></script> \n" 
+"<script> \n" 
+"// Full list of configuration options available here: \n" 
+"// https://github.com/hakimel/reveal.js#configuration \n" 
+"Reveal.initialize(); \n" 
+"</script> \n" 
+
+
      "</body>
 </html>\n")))
 
