@@ -2936,7 +2936,7 @@ INFO is a plist holding export options."
      
       "<link rel=\"stylesheet\" href=\"./reveal.js/dist/reveal.css\"/>"
       "\n"
-      "<link rel=\"stylesheet\" href=\"./reveal.js/dist/theme/moon.css\" id="theme"/>"
+      "<link rel=\"stylesheet\" href=\"./reveal.js/dist/theme/moon.css\" id=\"theme\"/>"
 
      "</head>\n<body"
      (org-re-reveal--if-format " %s" org-re-reveal-body-attrs)
