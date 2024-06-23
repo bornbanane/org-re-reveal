@@ -2278,25 +2278,7 @@ Use INFO and custom variable `org-re-reveal-root'."
    "<script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-"
-   ;; plugin configures/frags
-   (org-re-reveal-scripts--reveal-options info)
-
-   ;; reveal.js main configures
-   (org-re-reveal-scripts--main-configures info)
-
-   ;; multiplexing - depends on defvar 'org-re-reveal-client-multiplex'
-   (org-re-reveal-scripts--multiplex info)
-
-   ;; load dependency js
-   (org-re-reveal-scripts--dependencies info)
-
-   ;; init-script
-   (org-re-reveal-scripts--init-script info)
-
-   ;; end of <script> tag
-   "});\n</script>\n"))
+Reveal.initialize();\n</script>\n"))
 
 (defun org-re-reveal--footer (info &optional object check-parent)
   "Return footer given INFO.
